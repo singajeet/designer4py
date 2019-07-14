@@ -1,0 +1,9 @@
+README.txt
+setup.py
+designer4py/__init__.py
+designer4py/tools.py
+designer4py.egg-info/PKG-INFO
+designer4py.egg-info/SOURCES.txt
+designer4py.egg-info/dependency_links.txt
+designer4py.egg-info/requires.txt
+designer4py.egg-info/top_level.txt
