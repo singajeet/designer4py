@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Designer For Py</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" ></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.9.0/cytoscape.min.js"></script>
+	<script src="js/designer.js" ></script>
+	<style>
+    	#cy {
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+        	top: 0px;
+        	left: 0px;
+    		}
+	</style>
+</head>
+<body>
+	<div id="cy"></div>
+	<script>
+		$(document).ready(function(){
+		var t = new DimTool("dim", "Dimension Tool");
+      		var cy = cytoscape({
+        	container: $('#cy'), //document.getElementById('cy'),
+        	elements: [
+          		{ data: { id: 'a' } },
+          		{ data: { id: 'b' } },
+			t.getData(),
+          		{
+            			data: {
+              				id: 'ab',
+              				source: 'a',
+              				target: 'b'
+            				}
+          		}],
+			style: [
+        			{
+            			selector: 'node[id="a"]',
+            			style: {
+                			shape: 'hexagon',
+                			'background-color': 'red',
+					label: 'data(id)'
+            				}
+				},
+				t.getStyle(),
+				{
+					selector: 'edge',
+					style: {
+						'width': 3,
+        					'line-color': 'orange',
+        					'target-arrow-color': '#ccc',
+						'target-arrow-shape': 'triangle'}
+				}
+			],
+			layout: {
+    				name: 'grid',
+				rows: 1
+			}
+      		});
+		});
+    	</script>
+</body>
+</html>
